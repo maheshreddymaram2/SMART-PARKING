@@ -1,0 +1,169 @@
+/* Updated dashboard.css with light colors and improved layout */
+
+/* Global Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f9ff;
+    color: #333;
+    scroll-behavior: smooth;
+}
+
+/* Sidebar */
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #cceeff;
+    overflow-x: hidden;
+    transition: width 0.3s ease;
+    padding-top: 20px;
+}
+
+.sidebar:hover {
+    width: 260px;
+}
+
+.sidebar .profile {
+    text-align: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #aaddff;
+}
+
+.sidebar .profile img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+}
+
+.sidebar .profile h3 {
+    color: #005f99;
+    margin: 10px 0;
+}
+
+.sidebar a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #222;
+    display: block;
+    transition: all 0.3s;
+    border-left: 3px solid transparent;
+}
+
+.sidebar a:hover {
+    background-color: #b3e6ff;
+    color: #005f99;
+    border-left: 3px solid #00bfff;
+}
+
+/* Admin-Only Section */
+#admin-links a {
+    background-color: #e3f7f7;
+    border-left: 3px solid transparent;
+}
+
+#admin-links a:hover {
+    background-color: #c1f0f0;
+    border-left: 3px solid #00bfff;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 250px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #99ddff;
+    color: #222;
+    padding: 15px 20px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Dashboard Sections */
+.dashboard-section {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #e0ffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.dashboard-section:hover {
+    transform: translateY(-5px);
+}
+
+/* User Section Styles */
+.dashboard-section.user-section {
+    background-color: #e0ffff; /* Light cyan */
+}
+
+#profile, #book-parking, #cancel-booking, #booking-details {
+    background-color: #e0ffff; /* User section background */
+}
+
+#profile h2, #book-parking h2, #cancel-booking h2, #booking-details h2 {
+    color: #005f99; /* Dark blue */
+}
+
+/* Admin Section Styles */
+.admin-section {
+    background-color: #e6f7ff; /* Lighter shade of blue for admin */
+    border-left: 5px solid #00bfff; /* Distinct border color */
+}
+
+.admin-section h2 {
+    color: #005f99; /* Dark blue for headings */
+}
+
+#admin-dashboard, #reports, #slot-management, #manage-users {
+    background-color: #e6f7ff; /* Admin section background */
+}
+
+#admin-dashboard h2, #reports h2, #slot-management h2, #manage-users h2 {
+    color: #005f99; /* Dark blue for headings */
+}
+
+/* Footer */
+.footer {
+    background-color: #99ddff;
+    color: #222;
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    width: calc(100% - 250px);
+    margin-left: 250px;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100px;
+    }
+
+    .sidebar:hover {
+        width: 250px;
+    }
+
+    .main-content {
+        margin-left: 100px;
+    }
+
+    .footer {
+        width: calc(100% - 100px);
+        margin-left: 100px;
+    }
+}
