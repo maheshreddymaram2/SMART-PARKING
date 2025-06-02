@@ -1,146 +1,157 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Elements
-  const profileImg = document.getElementById("profile-img");
-  const userNameElem = document.getElementById("user-name");
-  const userEmailElem = document.getElementById("user-email");
-  const profileName = document.getElementById("profile-name");
-  const profileEmail = document.getElementById("profile-email");
-  const profileVehicleType = document.getElementById("profile-vehicle-type");
-  const profileVehicleNumber = document.getElementById("profile-vehicle-number");
-  const profileModelName = document.getElementById("profile-model-name");
-  const profileParkingPreference = document.getElementById("profile-parking-preference");
+document.addEventListener("DOMContentLoaded", function () {
+    // Fake data for demonstration
+    const fakeUserData = {
+        name: "John Doe",
+        email: "john.doe@example.com",
+        vehicleType: "Car",
+        vehicleNumber: "ABC123",
+        modelName: "Toyota Corolla",
+        parkingPreference: "Near Entrance",
+        bookings: [
+            { id: 1, date: "2025-03-20", spot: "A1", status: "Confirmed", fare: "$5" },
+            { id: 2, date: "2025-03-21", spot: "B2", status: "Pending", fare: "$4" }
+        ]
+    };
 
-  const adminLinksContainer = document.getElementById("admin-links");
-  const userOnlyLinks = document.querySelectorAll(".user-only");
-  const sections = document.querySelectorAll(".dashboard-section");
-  const navLinks = document.querySelectorAll(".nav-link");
+    // Display user name on sidebar
+    const userNameDisplay = document.getElementById("user-name");
+    userNameDisplay.textContent = fakeUserData.name;
 
-  // Determine if user is admin
-  let isAdmin = false;
-  let currentUser = null;
+    // Check if the user is admin
+    const adminEmail = "admin@smartparking.com";
+    const adminLinks = document.getElementById("admin-links");
 
-  // Fetch currentUser from localStorage
-  const currentUserRaw = localStorage.getItem("currentUser");
-  if (currentUserRaw) {
-    currentUser = JSON.parse(currentUserRaw);
-  }
-
-  // Check admin login flag from sessionStorage
-  const adminLoggedIn = sessionStorage.getItem("adminLoggedIn");
-
-  if (adminLoggedIn === "true") {
-    isAdmin = true;
-  } else if (currentUser) {
-    isAdmin = false;
-  } else {
-    alert("Please login first.");
-    window.location.href = "login.html";
-    return;
-  }
-
-  // Apply theme and show/hide links based on role
-  if (isAdmin) {
-    adminLinksContainer.style.display = "block";
-    userOnlyLinks.forEach(el => (el.style.display = "none"));
-
-    // Add admin theme class, remove user theme if present
-    document.body.classList.add("admin-dashboard-theme");
-    document.body.classList.remove("user-dashboard-theme");
-
-    userNameElem.textContent = "Admin";
-    userEmailElem.textContent = "admin@smartparking.com";
-    profileImg.src = "../images/admin-profile.png"; // default admin image
-  } else {
-    adminLinksContainer.style.display = "none";
-    userOnlyLinks.forEach(el => (el.style.display = "block"));
-
-    // Add user theme class, remove admin theme if present
-    document.body.classList.add("user-dashboard-theme");
-    document.body.classList.remove("admin-dashboard-theme");
-
-    userNameElem.textContent = currentUser.name || "User";
-    userEmailElem.textContent = currentUser.email || "";
-
-    profileName.textContent = currentUser.name || "";
-    profileEmail.textContent = currentUser.email || "";
-    profileVehicleType.textContent = currentUser.vehicleType || "";
-    profileVehicleNumber.textContent = currentUser.vehicleNumber || "";
-    profileModelName.textContent = currentUser.modelName || "";
-    profileParkingPreference.textContent = currentUser.parkingPreference || "";
-
-    profileImg.src = "../images/user-profile.png"; // default user image
-  }
-
-  // Navigation handling
-  navLinks.forEach(link => {
-    link.addEventListener("click", e => {
-      e.preventDefault();
-
-      navLinks.forEach(l => l.classList.remove("active"));
-      link.classList.add("active");
-
-      const targetId = link.getAttribute("href").substring(1);
-
-      sections.forEach(section => {
-        section.style.display = "none";
-        section.classList.remove("active-section");
-      });
-
-      const targetSection = document.getElementById(targetId);
-      if (targetSection) {
-        targetSection.style.display = "block";
-        targetSection.classList.add("active-section");
-      }
-
-      if (targetId === "booking-details" && !isAdmin) {
-        loadBookingHistory();
-      }
-    });
-  });
-
-  // Logout functionality
-  const logoutLink = document.getElementById("logout-link");
-  logoutLink.addEventListener("click", e => {
-    e.preventDefault();
-    localStorage.removeItem("currentUser");
-    sessionStorage.removeItem("adminLoggedIn");
-    alert("You have been logged out.");
-    window.location.href = "login.html";
-  });
-
-  // Load user's booking history
-  function loadBookingHistory() {
-    const bookingHistoryDiv = document.getElementById("booking-history");
-    bookingHistoryDiv.innerHTML = "";
-
-    const bookingsRaw = localStorage.getItem("bookings");
-    if (!bookingsRaw) {
-      bookingHistoryDiv.textContent = "No bookings found.";
-      return;
+    if (fakeUserData.email === adminEmail) {
+        adminLinks.style.display = "block"; // Show admin links (Reports, Earnings)
     }
 
-    const bookings = JSON.parse(bookingsRaw);
-    const userBookings = bookings.filter(b => b.userEmail === currentUser.email);
+    // Handle Sidebar Navigation
+    const dashboardSection = document.getElementById("dashboard");
+    const profileSection = document.getElementById("profile");
+    const bookParkingSection = document.getElementById("book-parking");
+    const cancelBookingSection = document.getElementById("cancel-booking");
+    const bookingDetailsSection = document.getElementById("booking-details");
+    const ticketFareSection = document.getElementById("ticket-fare");
 
-    if (userBookings.length === 0) {
-      bookingHistoryDiv.textContent = "No bookings found.";
-      return;
+    // Button clicks to show corresponding sections
+    document.querySelector("a[href='#dashboard']").addEventListener("click", function () {
+        showSection(dashboardSection);
+    });
+
+    document.querySelector("a[href='#profile']").addEventListener("click", function () {
+        showSection(profileSection);
+        displayProfile(fakeUserData); // Display profile data
+    });
+
+    document.querySelector("a[href='#book-parking']").addEventListener("click", function () {
+        showSection(bookParkingSection);
+        displayBookingForm(); // Display booking form
+    });
+
+    document.querySelector("a[href='#cancel-booking']").addEventListener("click", function () {
+        showSection(cancelBookingSection);
+        displayCancelBookingForm(fakeUserData.bookings); // Display cancel booking options
+    });
+
+    document.querySelector("a[href='#booking-details']").addEventListener("click", function () {
+        showSection(bookingDetailsSection);
+        displayBookingDetails(fakeUserData.bookings); // Display current bookings
+    });
+
+    document.querySelector("a[href='#ticket-fare']").addEventListener("click", function () {
+        showSection(ticketFareSection);
+        displayTicketFare(); // Display ticket fare details
+    });
+
+    // Logout function
+    document.querySelector("a[href='#logout']").addEventListener("click", function () {
+        localStorage.removeItem("currentUser"); // Remove current user from localStorage
+        window.location.href = "../html/login.html"; // Redirect to login page
+    });
+
+    // Show specific section by hiding others
+    function showSection(section) {
+        const sections = document.querySelectorAll(".dashboard-section");
+        sections.forEach(sec => sec.style.display = "none");
+        section.style.display = "block";
     }
 
-    userBookings.forEach(booking => {
-      const div = document.createElement("div");
-      div.classList.add("booking-item");
-      div.innerHTML = `
-        <p><strong>Slot Number:</strong> ${booking.slotNumber}</p>
-        <p><strong>Date:</strong> ${booking.date}</p>
-        <p><strong>Time:</strong> ${booking.time}</p>
-        <p><strong>Status:</strong> ${booking.status}</p>
-        <hr>
-      `;
-      bookingHistoryDiv.appendChild(div);
-    });
-  }
+    // Display Profile Information
+    function displayProfile(userData) {
+        profileSection.innerHTML = `
+            <h3>User Profile</h3>
+            <p>Name: ${userData.name}</p>
+            <p>Email: ${userData.email}</p>
+            <p>Vehicle Type: ${userData.vehicleType}</p>
+            <p>Vehicle Number: ${userData.vehicleNumber}</p>
+            <p>Model: ${userData.modelName}</p>
+            <p>Parking Preference: ${userData.parkingPreference}</p>
+        `;
+    }
 
-  // Default to show dashboard section on load
-  document.getElementById("dashboard").style.display = "block";
+    // Display Booking Form (for booking parking)
+    function displayBookingForm() {
+        bookParkingSection.innerHTML = `
+            <h3>Book Parking</h3>
+            <form id="booking-form">
+                <label for="date">Date: </label>
+                <input type="date" id="date" name="date">
+                <label for="spot">Parking Spot: </label>
+                <input type="text" id="spot" name="spot">
+                <label for="fare">Fare: </label>
+                <input type="text" id="fare" name="fare" value="$5" disabled>
+                <button type="submit">Book Parking</button>
+            </form>
+        `;
+        document.getElementById("booking-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert("Parking Booked!");
+            // Logic to save the new booking can be added here
+        });
+    }
+
+    // Display Cancel Booking Form
+    function displayCancelBookingForm(bookings) {
+        cancelBookingSection.innerHTML = "<h3>Cancel Booking</h3>";
+        bookings.forEach(booking => {
+            cancelBookingSection.innerHTML += `
+                <div>
+                    <p>Booking ID: ${booking.id} - Spot: ${booking.spot} - Date: ${booking.date} - Status: ${booking.status}</p>
+                    <button onclick="cancelBooking(${booking.id})">Cancel Booking</button>
+                </div>
+            `;
+        });
+    }
+
+    // Handle Cancel Booking
+    function cancelBooking(bookingId) {
+        alert(`Booking with ID: ${bookingId} has been canceled.`);
+        // Logic to remove or update the booking can be added here
+    }
+
+    // Display Booking Details
+    function displayBookingDetails(bookings) {
+        bookingDetailsSection.innerHTML = "<h3>Your Bookings</h3>";
+        bookings.forEach(booking => {
+            bookingDetailsSection.innerHTML += `
+                <div>
+                    <p>Booking ID: ${booking.id} - Spot: ${booking.spot} - Date: ${booking.date} - Status: ${booking.status} - Fare: ${booking.fare}</p>
+                </div>
+            `;
+        });
+    }
+
+    // Display Ticket Fare Information
+    function displayTicketFare() {
+        ticketFareSection.innerHTML = `
+            <h3>Ticket Fare</h3>
+            <p>Hourly Fare: $5</p>
+            <p>Daily Fare: $20</p>
+            <p>Monthly Fare: $150</p>
+        `;
+    }
+
+    // Show the Dashboard section on page load
+    showSection(dashboardSection);
 });
+
