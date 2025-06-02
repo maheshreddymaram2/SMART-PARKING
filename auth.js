@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     role: "admin"
                 };
                 localStorage.setItem("currentUser", JSON.stringify(adminUser));
-                window.location.href = "dashboard1.html";
+                window.location.href = "dashboard.html";
                 return;
             }
 
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 alert("User login successful!");
                 user.role = "user";  // Ensure user has role too
                 localStorage.setItem("currentUser", JSON.stringify(user));
-                window.location.href = "dashboard1.html";
+                window.location.href = "dashboard.html";
             } else {
                 alert("Invalid email or password.");
             }
