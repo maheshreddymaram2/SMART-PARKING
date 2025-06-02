@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - Smart Parking System</title>
+    <link rel="stylesheet" href="./signup.css">
+</head>
+<body>
+
+    <div class="signup-container">
+        <h2>Create an Account</h2>
+        <p>Sign up to book your parking slot easily!</p>
+        
+        <form id="signup-form" action="#" method="POST">
+            <!-- User Info -->
+            <div class="input-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <!-- Vehicle Info Section -->
+            <h3>Vehicle Information</h3>
+
+            <div class="input-group">
+                <label for="vehicle-type">Vehicle Type</label>
+                <select id="vehicle-type" name="vehicle-type" required>
+                    <option value="Car">Car</option>
+                    <option value="Bike">Bike</option>
+                    <option value="Truck">Truck</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="vehicle-number">Vehicle Number</label>
+                <input type="text" id="vehicle-number" name="vehicle-number" required>
+            </div>
+
+            <div class="input-group">
+                <label for="model-name">Model Name</label>
+                <input type="text" id="model-name" name="model-name" required>
+            </div>
+
+            <div class="input-group">
+                <label for="parking-preference">Parking Preference</label>
+                <select id="parking-preference" name="parking-preference" required>
+                    <option value="Covered">Covered</option>
+                    <option value="Open">Open</option>
+                </select>
+            </div>
+
+            <button type="submit" class="cta-button">Sign Up</button>
+        </form>
+
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+<script src="./auth.js"></script>
+</body>
+</html>

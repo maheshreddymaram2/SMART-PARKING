@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Parking System</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">🚗 SmartParkingSYSTEM</div>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html" class="signup-btn">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <video autoplay loop muted class="hero-video" id="backgroundVideo">
+            <source src="./Smart_Parking_Systemdemo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <h1>Smart Parking System</h1>
+            <p>Book your parking slot effortlessly with real-time availability.</p>
+            <a href="signup.html" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Why Choose Smart Parking?</h2>
+        <div class="feature-container">
+            <div class="feature-box">
+                <h3>🚦 Real-Time Slot Availability</h3>
+                <p>Instantly check and book available parking spaces.</p>
+            </div>
+            <div class="feature-box">
+                <h3>🔐 Secure Payments</h3>
+                <p>Pay safely with multiple payment options.</p>
+            </div>
+            <div class="feature-box">
+                <h3>📊 User & Admin Dashboard</h3>
+                <p>Manage bookings and parking slots easily.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <h2>How It Works?</h2>
+        <div class="steps">
+            <div class="step">
+                <h3>1️⃣ Sign Up & Login</h3>
+                <p>Create an account and log in to access the dashboard.</p>
+            </div>
+            <div class="step">
+                <h3>2️⃣ Book Your Slot</h3>
+                <p>Select a parking space and confirm your booking.</p>
+            </div>
+            <div class="step">
+                <h3>3️⃣ Park & Pay</h3>
+                <p>Drive to your booked slot and complete the payment.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Smart Parking System | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        const video = document.getElementById("backgroundVideo");
+
+        video.addEventListener("mouseover", () => {
+            video.pause();
+        });
+
+        video.addEventListener("mouseleave", () => {
+            video.play();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard - Smart Parking System</title>
+    <link rel="stylesheet" href="../css/dashboard1.css" />
+</head>
+<body class="user-dashboard"> <!-- Change to admin-dashboard dynamically via JS -->
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="profile">
+            <img src="" alt="Profile Picture" id="profile-img" />
+            <h3 id="user-name">User Name</h3>
+            <p id="user-email"></p>
+        </div>
+        <a href="#dashboard" id="dashboard-link" class="nav-link active">Dashboard</a>
+        <a href="#profile" id="profile-link" class="nav-link">Profile</a>
+        <a href="#book-parking" id="book-parking-link" class="nav-link user-only">Book Parking</a>
+        <a href="#cancel-booking" id="cancel-booking-link" class="nav-link user-only">Cancel Booking</a>
+        <a href="#booking-details" id="booking-details-link" class="nav-link user-only">Booking Details</a>
+
+        <!-- Admin-only Links -->
+        <div id="admin-links" class="admin-only" style="display: none;">
+            <a href="#admin-dashboard" id="admin-dashboard-link" class="nav-link">Admin Dashboard</a>
+            <a href="#reports" id="reports-link" class="nav-link">Reports</a>
+            <a href="#slot-management" id="slot-management-link" class="nav-link">Slot Management</a>
+            <a href="#manage-users" id="manage-users-link" class="nav-link">Manage Users</a>
+        </div>
+
+        <a href="#" id="logout-link" class="nav-link logout-link">Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="container">
+                <a href="#" class="logo">Smart Parking System</a>
+            </div>
+        </nav>
+
+        <!-- Sections -->
+        <section id="dashboard" class="dashboard-section active-section">
+            <h2>Dashboard</h2>
+            <p>Welcome to your dashboard.</p>
+        </section>
+
+        <section id="profile" class="dashboard-section">
+            <h2>Profile</h2>
+            <div class="profile-details">
+                <p><strong>Name:</strong> <span id="profile-name"></span></p>
+                <p><strong>Email:</strong> <span id="profile-email"></span></p>
+                <p><strong>Vehicle Type:</strong> <span id="profile-vehicle-type"></span></p>
+                <p><strong>Vehicle Number:</strong> <span id="profile-vehicle-number"></span></p>
+                <p><strong>Model Name:</strong> <span id="profile-model-name"></span></p>
+                <p><strong>Parking Preference:</strong> <span id="profile-parking-preference"></span></p>
+            </div>
+        </section>
+
+        <section id="book-parking" class="dashboard-section">
+            <h2>Book Parking</h2>
+            <p>Booking functionality coming soon.</p>
+        </section>
+
+        <section id="cancel-booking" class="dashboard-section">
+            <h2>Cancel Booking</h2>
+            <p>Cancel booking functionality coming soon.</p>
+        </section>
+
+        <section id="booking-details" class="dashboard-section">
+            <h2>Booking Details</h2>
+            <div id="booking-history">
+                <!-- Booking history will load here -->
+            </div>
+        </section>
+
+        <!-- Admin Sections -->
+        <section id="admin-dashboard" class="dashboard-section admin-section">
+            <h2>Admin Dashboard</h2>
+            <p>Admin specific controls and stats.</p>
+        </section>
+
+        <section id="reports" class="dashboard-section admin-section">
+            <h2>Reports</h2>
+            <p>Reports content goes here.</p>
+        </section>
+
+        <section id="slot-management" class="dashboard-section admin-section">
+            <h2>Slot Management</h2>
+            <p>Slot management functionality coming soon.</p>
+        </section>
+
+        <section id="manage-users" class="dashboard-section admin-section">
+            <h2>Manage Users</h2>
+            <p>User management functionality coming soon.</p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>Contact Info: support@smartparking.com | Help & Support</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="./dashboard1.js"></script>
+</body>
+</html>

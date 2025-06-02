@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Receipt - Smart Parking System</title>
+  <link rel="stylesheet" href="./receipt.css" />
+</head>
+<body>
+  <div class="receipt-container">
+    <h1>Parking Booking Receipt</h1>
+    
+    <!-- Dynamic booking details from localStorage -->
+    <div class="receipt-box" id="receipt-details">
+      <!-- Content will be inserted via JavaScript -->
+    </div>
+
+    <div class="receipt-buttons">
+      <button onclick="downloadPDF()">Download PDF</button>
+      <button onclick="sendToGmail()">Send to Gmail</button>
+      <button onclick="goBack()">Back to Dashboard</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS public key
+    })();
+  </script>
+  <script src="./receipt.js"></script>
+</body>
+</html>
