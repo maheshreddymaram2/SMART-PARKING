@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Smart Parking System</title>
-    <link rel="stylesheet" href="../css/dashboard1.css" />
+    <link rel="stylesheet" href="./dashboard.css">
 </head>
-<body class="user-dashboard"> <!-- Change to admin-dashboard dynamically via JS -->
-
+<body>
     <!-- Sidebar -->
     <div class="sidebar">
         <div class="profile">
-            <img src="" alt="Profile Picture" id="profile-img" />
+            <img src="path_to_profile_image" alt="Profile Picture">
             <h3 id="user-name">User Name</h3>
-            <p id="user-email"></p>
         </div>
-        <a href="#dashboard" id="dashboard-link" class="nav-link active">Dashboard</a>
-        <a href="#profile" id="profile-link" class="nav-link">Profile</a>
-        <a href="#book-parking" id="book-parking-link" class="nav-link user-only">Book Parking</a>
-        <a href="#cancel-booking" id="cancel-booking-link" class="nav-link user-only">Cancel Booking</a>
-        <a href="#booking-details" id="booking-details-link" class="nav-link user-only">Booking Details</a>
+        <a href="#dashboard" id="dashboard-link">Dashboard</a>
+        <a href="../html/profile.html" id="profile-link">Profile</a>
+        <a href="../html/booking.html" id="book-parking-link">Book Parking</a>
+        <a href="#cancel-booking" id="cancel-booking-link">Cancel Booking</a>
+        <a href="#booking-details" id="booking-details-link">Booking Details</a>
 
-        <!-- Admin-only Links -->
-        <div id="admin-links" class="admin-only" style="display: none;">
-            <a href="#admin-dashboard" id="admin-dashboard-link" class="nav-link">Admin Dashboard</a>
-            <a href="#reports" id="reports-link" class="nav-link">Reports</a>
-            <a href="#slot-management" id="slot-management-link" class="nav-link">Slot Management</a>
-            <a href="#manage-users" id="manage-users-link" class="nav-link">Manage Users</a>
+        <!-- Admin-Only Links -->
+        <div id="admin-links" style="display: none;">
+            <a href="#admin-dashboard" id="admin-dashboard-link">Admin Dashboard</a>
+            <a href="#reports" id="reports-link">Reports</a>
+            <a href="#slot-management" id="slot-management-link">Slot Management</a>
+            <a href="#manage-users" id="manage-users-link">Manage Users</a>
         </div>
-
-        <a href="#" id="logout-link" class="nav-link logout-link">Logout</a>
+        <a href="#logout" id="logout-link">Logout</a>
     </div>
 
     <!-- Main Content -->
@@ -41,60 +38,55 @@
             </div>
         </nav>
 
-        <!-- Sections -->
-        <section id="dashboard" class="dashboard-section active-section">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="dashboard-section">
             <h2>Dashboard</h2>
-            <p>Welcome to your dashboard.</p>
+            <!-- Dashboard content goes here -->
         </section>
 
-        <section id="profile" class="dashboard-section">
+        <!-- Profile Section -->
+        <section id="profile" class="dashboard-section" style="display: none;">
             <h2>Profile</h2>
-            <div class="profile-details">
-                <p><strong>Name:</strong> <span id="profile-name"></span></p>
-                <p><strong>Email:</strong> <span id="profile-email"></span></p>
-                <p><strong>Vehicle Type:</strong> <span id="profile-vehicle-type"></span></p>
-                <p><strong>Vehicle Number:</strong> <span id="profile-vehicle-number"></span></p>
-                <p><strong>Model Name:</strong> <span id="profile-model-name"></span></p>
-                <p><strong>Parking Preference:</strong> <span id="profile-parking-preference"></span></p>
-            </div>
+            <!-- Profile content goes here -->
         </section>
 
-        <section id="book-parking" class="dashboard-section">
+        <!-- Book Parking Section -->
+        <section id="Book-parking" class="dashboard-section" style="display: none;">
             <h2>Book Parking</h2>
-            <p>Booking functionality coming soon.</p>
+            <!-- Book Parking content goes here -->
         </section>
 
-        <section id="cancel-booking" class="dashboard-section">
+        <!-- Cancel Booking Section -->
+        <section id="cancel-booking" class="dashboard-section" style="display: none;">
             <h2>Cancel Booking</h2>
-            <p>Cancel booking functionality coming soon.</p>
+            <!-- Cancel Booking content goes here -->
         </section>
 
-        <section id="booking-details" class="dashboard-section">
+        <!-- Booking Details Section -->
+        <section id="booking-details" class="dashboard-section" style="display: none;">
             <h2>Booking Details</h2>
-            <div id="booking-history">
-                <!-- Booking history will load here -->
-            </div>
+            <!-- Booking Details content goes here -->
         </section>
 
-        <!-- Admin Sections -->
-        <section id="admin-dashboard" class="dashboard-section admin-section">
+        <!-- Admin-Only Sections -->
+        <section id="admin-dashboard" class="dashboard-section admin-section" style="display: none;">
             <h2>Admin Dashboard</h2>
-            <p>Admin specific controls and stats.</p>
+            <!-- Admin Dashboard content goes here -->
         </section>
 
-        <section id="reports" class="dashboard-section admin-section">
+        <section id="reports" class="dashboard-section admin-section" style="display: none;">
             <h2>Reports</h2>
-            <p>Reports content goes here.</p>
+            <!-- Reports content goes here -->
         </section>
 
-        <section id="slot-management" class="dashboard-section admin-section">
+        <section id="slot-management" class="dashboard-section admin-section" style="display: none;">
             <h2>Slot Management</h2>
-            <p>Slot management functionality coming soon.</p>
+            <!-- Slot Management content goes here -->
         </section>
 
-        <section id="manage-users" class="dashboard-section admin-section">
+        <section id="manage-users" class="dashboard-section admin-section" style="display: none;">
             <h2>Manage Users</h2>
-            <p>User management functionality coming soon.</p>
+            <!-- Manage Users content goes here -->
         </section>
 
         <!-- Footer -->
@@ -105,6 +97,7 @@
         </footer>
     </div>
 
-    <script src="./dashboard1.js"></script>
+    <script src="./dashboard.js"></script>
 </body>
 </html>
+
