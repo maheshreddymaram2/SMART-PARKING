@@ -1,6 +1,3 @@
-/* Updated dashboard.css with light colors and improved layout */
-
-/* Global Styles */
 body, html {
     margin: 0;
     padding: 0;
@@ -19,8 +16,9 @@ body, html {
     left: 0;
     background-color: #cceeff;
     overflow-x: hidden;
-    transition: width 0.3s ease;
+    transition: all 0.3s ease;
     padding-top: 20px;
+    z-index: 1000;
 }
 
 .sidebar:hover {
@@ -43,6 +41,7 @@ body, html {
 .sidebar .profile h3 {
     color: #005f99;
     margin: 10px 0;
+    font-size: 16px;
 }
 
 .sidebar a {
@@ -104,35 +103,38 @@ body, html {
     transform: translateY(-5px);
 }
 
-/* User Section Styles */
-.dashboard-section.user-section {
-    background-color: #e0ffff; /* Light cyan */
+/* User Section */
+.dashboard-section.user-section,
+#profile,
+#book-parking,
+#cancel-booking,
+#booking-details {
+    background-color: #e0ffff;
 }
 
-#profile, #book-parking, #cancel-booking, #booking-details {
-    background-color: #e0ffff; /* User section background */
+#profile h2,
+#book-parking h2,
+#cancel-booking h2,
+#booking-details h2 {
+    color: #005f99;
 }
 
-#profile h2, #book-parking h2, #cancel-booking h2, #booking-details h2 {
-    color: #005f99; /* Dark blue */
+/* Admin Section */
+.admin-section,
+#admin-dashboard,
+#reports,
+#slot-management,
+#manage-users {
+    background-color: #e6f7ff;
+    border-left: 5px solid #00bfff;
 }
 
-/* Admin Section Styles */
-.admin-section {
-    background-color: #e6f7ff; /* Lighter shade of blue for admin */
-    border-left: 5px solid #00bfff; /* Distinct border color */
-}
-
-.admin-section h2 {
-    color: #005f99; /* Dark blue for headings */
-}
-
-#admin-dashboard, #reports, #slot-management, #manage-users {
-    background-color: #e6f7ff; /* Admin section background */
-}
-
-#admin-dashboard h2, #reports h2, #slot-management h2, #manage-users h2 {
-    color: #005f99; /* Dark blue for headings */
+.admin-section h2,
+#admin-dashboard h2,
+#reports h2,
+#slot-management h2,
+#manage-users h2 {
+    color: #005f99;
 }
 
 /* Footer */
@@ -146,24 +148,72 @@ body, html {
     width: calc(100% - 250px);
     margin-left: 250px;
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 999;
 }
 
-/* Responsive Styles */
-@media screen and (max-width: 768px) {
+/* Tablet Responsive */
+@media screen and (max-width: 1024px) {
     .sidebar {
-        width: 100px;
-    }
-
-    .sidebar:hover {
-        width: 250px;
+        width: 200px;
     }
 
     .main-content {
-        margin-left: 100px;
+        margin-left: 200px;
     }
 
     .footer {
-        width: calc(100% - 100px);
-        margin-left: 100px;
+        width: calc(100% - 200px);
+        margin-left: 200px;
+    }
+
+    .sidebar .profile h3 {
+        font-size: 14px;
+    }
+
+    .sidebar a {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+        padding-top: 10px;
+    }
+
+    .sidebar:hover {
+        width: 200px;
+    }
+
+    .sidebar .profile h3,
+    .sidebar a span {
+        display: none;
+    }
+
+    .sidebar .profile img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .main-content {
+        margin-left: 60px;
+        padding: 15px;
+    }
+
+    .footer {
+        width: calc(100% - 60px);
+        margin-left: 60px;
+        font-size: 14px;
+    }
+
+    .navbar {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .dashboard-section {
+        padding: 15px;
     }
 }
