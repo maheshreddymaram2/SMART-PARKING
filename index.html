@@ -9,22 +9,27 @@
 <body>
     <!-- Navbar -->
     <header class="navbar">
-        <div class="logo">SmartParkingSystem</div>
+        <div class="logo">
+            <img src="logo.png" alt="Smart Parking Logo" class="logo-img">
+            <span class="logo-text">SmartParkingSYSTEM</span>
+        </div>
         <nav>
             <ul>
-                <li><a href="login.html">Dashboard</a></li>
+                <li><a href="signup.html">Dashboard</a></li>
                 <li><a href="login.html">Login</a></li>
                 <li><a href="signup.html" class="signup-btn">Sign Up</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Responsive Video -->
     <section class="hero">
-        <video autoplay loop muted class="hero-video" id="backgroundVideo">
-            <source src="./Smart_Parking_Systemdemo.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <div class="video-wrapper">
+            <video autoplay loop muted playsinline class="hero-video" id="backgroundVideo">
+                <source src="./Smart_Parking_Systemdemo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
         <div class="hero-content">
             <h1>Smart Parking System</h1>
             <p>Book your parking slot effortlessly with real-time availability.</p>
@@ -32,7 +37,7 @@
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Features -->
     <section class="features">
         <h2>Why Choose Smart Parking?</h2>
         <div class="feature-container">
@@ -51,7 +56,7 @@
         </div>
     </section>
 
-    <!-- How It Works Section -->
+    <!-- How it Works -->
     <section class="how-it-works">
         <h2>How It Works?</h2>
         <div class="steps">
@@ -77,14 +82,9 @@
 
     <script>
         const video = document.getElementById("backgroundVideo");
-
-        video.addEventListener("mouseover", () => {
-            video.pause();
-        });
-
-        video.addEventListener("mouseleave", () => {
-            video.play();
-        });
+        video.addEventListener("mouseover", () => video.pause());
+        video.addEventListener("mouseleave", () => video.play());
     </script>
 </body>
 </html>
+
