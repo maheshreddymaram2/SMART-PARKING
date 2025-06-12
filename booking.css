@@ -74,14 +74,14 @@ button:hover {
 /* Grid Slots */
 #parking-grid {
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
     gap: 10px;
     margin-top: 20px;
 }
 
 .slot {
-    width: 40px;
-    height: 40px;
+    width: 100%;
+    aspect-ratio: 1/1;
     border: 1px solid #999;
     border-radius: 5px;
     cursor: pointer;
@@ -94,19 +94,19 @@ button:hover {
 }
 
 .available {
-    background-color:#B3FFAE;                /* #2ecc71;*/
+    background-color:#B3FFAE;
 }
 
 .booked {
-    background-color:#FF6464;              /*#e74c3c #F6416C  */
+    background-color:#FF6464;
 } 
 
 .reserved {
-    background-color: #FFAB76;              /*#f39c12 #FFAB76*/
+    background-color: #FFAB76;
 }
 
 .selected {
-    background-color: #71C9CE !important;      /*#3493db*/
+    background-color: #71C9CE !important;
 }
 
 .legend {
@@ -125,7 +125,7 @@ button:hover {
     border-radius: 5px;
 }
 
-/* Fare Section (OLD - Optional Remove if Unused) */
+/* Fare Section (Optional) */
 .fare-section {
     background: #fff;
     padding: 20px;
@@ -152,9 +152,10 @@ button:hover {
     border-radius: 4px;
 }
 
-/* Fare Box Layout (NEW) */
+/* Fare Box Layout */
 .fare-box {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: flex-start;
     padding: 20px;
@@ -167,13 +168,14 @@ button:hover {
 }
 
 .fare-item {
-    flex: 1;
+    flex: 1 1 300px;
     text-align: center;
 }
 
 .fare-item img {
-    width: 360px;
-    height: 260px;
+    width: 100%;
+    max-width: 360px;
+    height: auto;
     object-fit: cover;
     margin-bottom: 10px;
     border-radius: 10px;
@@ -190,15 +192,10 @@ button:hover {
     font-size: 16px;
 }
 
-@media screen and (max-width: 768px) {
-    form {
-        gap: 10px;
-    }
+/* Media Queries */
 
-    button {
-        padding: 12px;
-    }
-
+/* Tablets */
+@media screen and (max-width: 1024px) {
     .fare-box {
         flex-direction: column;
         align-items: center;
@@ -207,16 +204,36 @@ button:hover {
 
     .fare-item {
         width: 100%;
-        margin-bottom: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+    h2 {
+        font-size: 20px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    input, select {
+        font-size: 14px;
     }
 
     .fare-item img {
-        max-width: 100%;
-        width: 280px; /* Slightly reduced for mobile */
-        height: auto;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    #parking-grid {
+        grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+    }
+
+    .slot {
+        font-size: 10px;
     }
 }
+
 
