@@ -20,7 +20,7 @@ function generateParkingGrid(location, vehicleType) {
         const slot = document.createElement("div");
         slot.classList.add("slot");
 
-        // Generate label like A1, A2, ..., J10
+        // Slot label e.g., A1, B5, etc.
         const rowLabel = String.fromCharCode(65 + Math.floor(i / 10)); // A-J
         const colLabel = (i % 10) + 1;
         slot.dataset.label = `${rowLabel}${colLabel}`;
@@ -29,8 +29,7 @@ function generateParkingGrid(location, vehicleType) {
         if (i < availableSlots) {
             slot.classList.add("available");
 
-            // Make available slots selectable
-            slot.addEventListener("click", function () {
+            slot.addEventListener("click", () => {
                 if (slot.classList.contains("selected")) {
                     slot.classList.remove("selected");
                     selectedSlots = selectedSlots.filter(label => label !== slot.dataset.label);
@@ -46,7 +45,6 @@ function generateParkingGrid(location, vehicleType) {
                 document.getElementById("selected-count").textContent = selectedSlots.length;
                 calculateFare();
             });
-
         } else if (i < availableSlots + 20) {
             slot.classList.add("reserved");
         } else {
@@ -57,7 +55,7 @@ function generateParkingGrid(location, vehicleType) {
     }
 }
 
-// Show grid when both fields are selected
+// Show grid when both vehicle and location are selected
 document.getElementById("parking-location").addEventListener("change", handleSelection);
 document.getElementById("vehicle-type").addEventListener("change", handleSelection);
 document.getElementById("entry-time").addEventListener("change", calculateFare);
@@ -65,37 +63,37 @@ document.getElementById("exit-time").addEventListener("change", calculateFare);
 
 function handleSelection() {
     const location = document.getElementById("parking-location").value;
-    const vehicle = document.getElementById("vehicle-type").value;
+    const vehicleType = document.getElementById("vehicle-type").value;
 
-    if (location && vehicle) {
+    if (location && vehicleType) {
         document.getElementById("parking-grid-container").style.display = "block";
         document.getElementById("selected-count").textContent = "0";
-        generateParkingGrid(location, vehicle);
+        generateParkingGrid(location, vehicleType);
     }
 }
 
 function calculateFare() {
-    const entry = document.getElementById("entry-time").value;
-    const exit = document.getElementById("exit-time").value;
+    const entryTime = document.getElementById("entry-time").value;
+    const exitTime = document.getElementById("exit-time").value;
     const vehicleType = document.getElementById("vehicle-type").value;
 
-    if (!entry || !exit || !vehicleType || selectedSlots.length === 0) return;
+    if (!entryTime || !exitTime || !vehicleType || selectedSlots.length === 0) return;
 
-    const start = new Date(`1970-01-01T${entry}:00`);
-    const end = new Date(`1970-01-01T${exit}:00`);
+    const start = new Date(`1970-01-01T${entryTime}:00`);
+    const end = new Date(`1970-01-01T${exitTime}:00`);
     let hours = (end - start) / (1000 * 60 * 60);
-    if (hours < 0) hours += 24; // overnight
+    if (hours < 0) hours += 24; // Overnight correction
 
-    const effectiveHours = hours > 24 ? 20 : Math.ceil(hours);
-    const totalFare = fareRates[vehicleType] * effectiveHours * selectedSlots.length;
+    const duration = Math.ceil(hours);
+    const totalFare = fareRates[vehicleType] * duration * selectedSlots.length;
 
     document.getElementById("fare-display").style.display = "block";
-    document.getElementById("duration-hours").textContent = effectiveHours;
+    document.getElementById("duration-hours").textContent = duration;
     document.getElementById("calculated-fare").textContent = totalFare;
 }
 
-// Form submission with date validation
-document.getElementById("parking-form").addEventListener("submit", function (event) {
+// Booking Form Submission
+document.getElementById("parking-form").addEventListener("submit", (event) => {
     event.preventDefault();
 
     if (selectedSlots.length === 0) {
@@ -105,35 +103,27 @@ document.getElementById("parking-form").addEventListener("submit", function (eve
 
     const selectedDate = document.getElementById("date").value;
     const today = new Date();
-    const chosenDate = new Date(selectedDate);
+    const bookingDate = new Date(selectedDate);
     today.setHours(0, 0, 0, 0);
 
-    if (chosenDate < today) {
+    if (bookingDate < today) {
         alert("Please select a valid future date.");
         return;
     }
 
-    const location = document.getElementById("parking-location").value;
-    const vehicleType = document.getElementById("vehicle-type").value;
-    const date = document.getElementById("date").value;
-    const entryTime = document.getElementById("entry-time").value;
-    const exitTime = document.getElementById("exit-time").value;
-
-    const duration = parseInt(document.getElementById("duration-hours").textContent);
-    const totalFare = parseInt(document.getElementById("calculated-fare").textContent);
-
-    const bookingInfo = {
-        location,
-        vehicleType,
-        date,
-        entryTime,
-        exitTime,
+    const bookingData = {
+        location: document.getElementById("parking-location").value,
+        vehicleType: document.getElementById("vehicle-type").value,
+        date: selectedDate,
+        entryTime: document.getElementById("entry-time").value,
+        exitTime: document.getElementById("exit-time").value,
         selectedSlots,
-        duration,
-        totalFare
+        duration: parseInt(document.getElementById("duration-hours").textContent),
+        totalFare: parseInt(document.getElementById("calculated-fare").textContent)
     };
 
-    localStorage.setItem("bookingInfo", JSON.stringify(bookingInfo));
+    // Store booking in localStorage
+    localStorage.setItem("bookingInfo", JSON.stringify(bookingData));
 
     document.getElementById("booking-success").style.display = "block";
 
