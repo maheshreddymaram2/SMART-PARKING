@@ -117,15 +117,7 @@ button:hover {
     border-radius: 4px;
 }
 
-/* Fare Summary */
-#fare-display {
-    padding: 10px;
-    background-color: #eaf7ea;
-    border-left: 4px solid #2ecc71;
-    border-radius: 5px;
-}
-
-/* Fare Section (Optional) */
+/* Fare Section */
 .fare-section {
     background: #fff;
     padding: 20px;
@@ -157,7 +149,7 @@ button:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    align-items: flex-start;
+    align-items: stretch;
     padding: 20px;
     margin-bottom: 20px;
     background-color: #ffffff;
@@ -169,14 +161,17 @@ button:hover {
 
 .fare-item {
     flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 
 .fare-item img {
     width: 100%;
-    max-width: 360px;
-    height: auto;
-    object-fit: cover;
+    max-width: 240px;
+    height: 160px;
+    object-fit: contain;
     margin-bottom: 10px;
     border-radius: 10px;
 }
@@ -190,6 +185,14 @@ button:hover {
 .fare-item strong {
     color: #2ecc71;
     font-size: 16px;
+}
+
+/* Fare Display Box */
+#fare-display {
+    padding: 10px;
+    background-color: #eaf7ea;
+    border-left: 4px solid #2ecc71;
+    border-radius: 5px;
 }
 
 /* Media Queries */
@@ -224,7 +227,8 @@ button:hover {
 
     .fare-item img {
         width: 100%;
-        max-width: 280px;
+        max-width: 240px;
+        height: 140px;
     }
 
     #parking-grid {
