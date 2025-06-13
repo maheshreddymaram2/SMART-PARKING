@@ -138,5 +138,6 @@ All screenshots are placed in the `screenshots/` folder.
 💻 Full-Stack Developer | MERN Stack  
 🎓 Final Year Student at SRM Institute of Science and Technology  
 🌐 [GitHub Profile](https://github.com/maheshreddymaram2)
+🔗 [LinkedIn](https://www.linkedin.com/in/venkata-mahesh-reddy-maram-28039626b/)
 
 >⭐ *If you liked this project or found it interesting, feel free to star the repository.*
