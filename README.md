@@ -18,7 +18,7 @@ All screenshots are placed in the `screenshot/` folder.
 | 🧭 Dashboard | ![Dashboard](screenshot/dashboard.png) |
 | 📍 Booking Page (Empty Slots) | ![Booking Empty](screenshot/booking_slots_empty.png) |
 | 🎯 Booking Page (With Selection) | ![Booking Selected](screenshot/booking_selected.png) |
-| 📱 Booking (Mobile View) | ![Mobile Booking](screenshot/booking_mobile.png) |
+| 📱 Booking (Mobile View) | ![Mobile Booking](screenshot/booking_mobile.jpg) |
 | 🧾 Receipt Page | ![Receipt](screenshot/receipt.png) |
 | 📄 PDF Preview | ![PDF Preview](screenshot/receipt_pdf.png) |
 
