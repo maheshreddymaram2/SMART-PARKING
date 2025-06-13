@@ -134,9 +134,9 @@ All screenshots are placed in the `screenshots/` folder.
 ---
 
 ## 👨‍💻 Author
+*Venkata Mahesh Reddy Maram*  
+💻 Full-Stack Developer | MERN Stack  
+🎓 Final Year Student at SRM Institute of Science and Technology  
+🌐 [GitHub Profile](https://github.com/maheshreddymaram2)
 
-**Mahesh Reddy Maram**  
-🎓 B.Tech Student | Frontend Developer  
-🔗 [GitHub – maheshreddymaram2](https://github.com/maheshreddymaram2)
----
 >⭐ *If you liked this project or found it interesting, feel free to star the repository.*
