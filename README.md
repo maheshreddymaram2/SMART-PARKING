@@ -8,7 +8,7 @@ A responsive and interactive parking slot booking system built using **HTML**, *
 
 ## 📸 Screenshots
 
-All screenshots are placed in the `screenshot/` folder.
+All screenshots are placed in the `screenshots/` folder.
 
 | Page | Preview |
 |------|---------|
