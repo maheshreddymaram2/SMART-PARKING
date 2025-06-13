@@ -1,4 +1,5 @@
-# Smart Parking System 🚗🅿️
+# Smart Parking System ![image](https://github.com/user-attachments/assets/4d42a699-a66c-475e-ba3a-2cf92b9102e2)
+🅿️
 
 A responsive and interactive parking slot booking system built using **HTML**, **CSS**, and **JavaScript**. Users can register, log in, and book parking slots based on vehicle type, location, and availability. Designed to simulate real-world parking logic with a clean and user-friendly interface.
 
