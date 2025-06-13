@@ -12,15 +12,15 @@ All screenshots are placed in the `screenshots/` folder.
 
 | Page | Preview |
 |------|---------|
-| 🏠 Homepage | ![Homepage](screenshot/home.png) |
-| 🔐 Login | ![Login](screenshot/login.png) |
-| 📝 Signup | ![Signup](screenshot/signup.png) |
-| 🧭 Dashboard | ![Dashboard](screenshot/dashboard.png) |
-| 📍 Booking Page (Empty Slots) | ![Booking Empty](screenshot/booking_slots_empty.png) |
-| 🎯 Booking Page (With Selection) | ![Booking Selected](screenshot/booking_selected.png) |
-| 📱 Booking (Mobile View) | ![Mobile Booking](screenshot/booking_mobile.jpg) |
-| 🧾 Receipt Page | ![Receipt](screenshot/receipt.png) |
-| 📄 PDF Preview | ![PDF Preview](screenshot/receipt_pdf.png) |
+| 🏠 Homepage | ![Homepage](screenshots/home.png) |
+| 🔐 Login | ![Login](screenshots/login.png) |
+| 📝 Signup | ![Signup](screenshots/signup.png) |
+| 🧭 Dashboard | ![Dashboard](screenshots/dashboard.png) |
+| 📍 Booking Page (Empty Slots) | ![Booking Empty](screenshots/booking_slots_empty.png) |
+| 🎯 Booking Page (With Selection) | ![Booking Selected](screenshots/booking_selected.png) |
+| 📱 Booking (Mobile View) | ![Mobile Booking](screenshots/booking_mobile.jpg) |
+| 🧾 Receipt Page | ![Receipt](screenshots/receipt.png) |
+| 📄 PDF Preview | ![PDF Preview](screenshots/receipt_pdf.png) |
 
 ---
 
